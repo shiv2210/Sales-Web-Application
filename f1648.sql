@@ -33,7 +33,7 @@ prompt APPLICATION 1648 - Sales Web Application
 -- Application Export:
 --   Application:     1648
 --   Name:            Sales Web Application
---   Date and Time:   19:34 Sunday March 16, 2025
+--   Date and Time:   20:01 Sunday March 16, 2025
 --   Exported By:     CHOUGULESHIVANI1999@GMAIL.COM
 --   Flashback:       0
 --   Export Type:     Application Export
@@ -65,7 +65,6 @@ prompt APPLICATION 1648 - Sales Web Application
 --         Layouts:                2
 --       E-Mail:
 --     Supporting Objects:  Included
---       Install scripts:          1
 --   Version:         24.2.2
 --   Instance ID:     63113759365424
 --
@@ -95,7 +94,7 @@ wwv_imp_workspace.create_flow(
 ,p_timestamp_tz_format=>'DS'
 ,p_flow_image_prefix => nvl(wwv_flow_application_install.get_image_prefix,'')
 ,p_authentication_id=>wwv_flow_imp.id(17361607271078217420)
-,p_application_tab_set=>0
+,p_application_tab_set=>1
 ,p_logo_type=>'T'
 ,p_logo_text=>'Sales Web Application'
 ,p_proxy_server=>nvl(wwv_flow_application_install.get_proxy,'')
@@ -113,7 +112,7 @@ wwv_imp_workspace.create_flow(
 ,p_substitution_value_01=>'Sales Web Application'
 ,p_file_prefix => nvl(wwv_flow_application_install.get_static_app_file_prefix,'')
 ,p_files_version=>14
-,p_version_scn=>15612291334562
+,p_version_scn=>15612293808028
 ,p_print_server_type=>'INSTANCE'
 ,p_file_storage=>'DB'
 ,p_is_pwa=>'Y'
@@ -14637,25 +14636,6 @@ prompt --application/deployment/definition
 begin
 wwv_flow_imp_shared.create_install(
  p_id=>wwv_flow_imp.id(20344128241294122530)
-);
-end;
-/
-prompt --application/deployment/install/install_seq
-begin
-wwv_flow_imp_shared.create_install_script(
- p_id=>wwv_flow_imp.id(20344209919882132057)
-,p_install_id=>wwv_flow_imp.id(20344128241294122530)
-,p_name=>'seq'
-,p_sequence=>10
-,p_script_type=>'INSTALL'
-,p_script_clob=>'   CREATE SEQUENCE  "DEMO_TASKS_SEQ"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 61 CACHE 20 NOORDER  NOCYCLE  NOKEEP  NOSCALE  GLOBAL ; '
-);
-wwv_flow_imp_shared.create_install_object(
- p_id=>wwv_flow_imp.id(20344210046010132061)
-,p_script_id=>wwv_flow_imp.id(20344209919882132057)
-,p_object_owner=>'#OWNER#'
-,p_object_type=>'SEQUENCE'
-,p_object_name=>'DEMO_TASKS_SEQ'
 );
 end;
 /
